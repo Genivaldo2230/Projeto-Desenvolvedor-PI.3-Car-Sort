@@ -11,21 +11,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-
 @WebServlet("/create-car")
 public class CreateCarServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
+        String carId = req.getParameter("id");
         String carName = req.getParameter("car-name");
 
-        Car car = new Car(carName);
+        CarDao carDao = new CarDao();
+        Car car = new Car(carId,carName);
 
-        new CarDao().createCar(car);
+        if ( carId.isBlank() ) {
 
-            resp.sendRedirect("/find-all-cars");
+            carDao.createCar(car);
 
+        } else {
+
+            carDao.updateCar(car);
+        }
+
+
+        resp.sendRedirect("/find-all-cars");
 
     }
 

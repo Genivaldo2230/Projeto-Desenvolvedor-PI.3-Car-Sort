@@ -4,9 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="estilos.css">
 </head>
 <body>
+
+
 <div>
+
     <h1>Cars</h1>
     <table>
         <tr>
@@ -29,6 +33,13 @@
             </tr>
         </c:forEach>
     </table>
-</div>
+   </div>
+</style>
+<script>
+    function redirectToAddCar() {
+        window.location.href = "/add-car";
+        return true;
+    }
+</script>
 </body>
 </html>

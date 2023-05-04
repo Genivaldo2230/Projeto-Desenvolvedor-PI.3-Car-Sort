@@ -14,6 +14,7 @@
     <h1>Cars</h1>
     <table>
         <tr>
+
             <th>ID</th>
             <th>Name</th>
             <th>Actions</th>
@@ -34,7 +35,7 @@
         </c:forEach>
     </table>
    </div>
-</style>
+
 <script>
     function redirectToAddCar() {
         window.location.href = "/add-car";
